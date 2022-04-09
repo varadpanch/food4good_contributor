@@ -2,6 +2,8 @@ package com.example.my_application;
 
 import com.google.protobuf.StringValueOrBuilder;
 
+import java.util.Objects;
+
 public class Order {
     String o_id;
     String r_id;
@@ -112,4 +114,16 @@ public class Order {
         this.requesterName = requesterName;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Order order = (Order) o;
+        return Objects.equals(o_id, order.o_id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(o_id);
+    }
 }
