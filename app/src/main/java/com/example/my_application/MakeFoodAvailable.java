@@ -3,6 +3,7 @@ package com.example.my_application;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +13,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -19,8 +22,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 public class MakeFoodAvailable extends AppCompatActivity {
 
-    Button btnMakeAvailable;
-    EditText etNonVeg,etVeg;
+    TextInputEditText etNonVeg,etVeg;
+    ExtendedFloatingActionButton btnMakeAvailable;
 
     //Firebase database
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -88,7 +91,11 @@ public class MakeFoodAvailable extends AppCompatActivity {
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void unused) {
-                                                Toast.makeText(MakeFoodAvailable.this, "Food is available!", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(MakeFoodAvailable.this, "Thanks for helping! Food is available.", Toast.LENGTH_SHORT).show();
+                                                Intent intent = new Intent(MakeFoodAvailable.this,ContributorDashboard.class);
+                                                intent.putExtra("id",id);
+                                                startActivity(intent);
+                                                finish();
                                             }
                                         })
                                         .addOnFailureListener(new OnFailureListener() {
