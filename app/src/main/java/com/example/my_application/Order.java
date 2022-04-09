@@ -6,29 +6,17 @@ public class Order {
     String o_id;
     String r_id;
     String c_id;
-    String v_qty;
-    String nv_qty;
+    int v_qty;
+    int nv_qty;
     String otp;
     String status;
     String longitude;
     String latitude;
     String requesterName;
 
-    public Order(String o_id, String r_id, String c_id, String v_qty, String nv_qty, String otp, String status, String longitude, String latitude, String requesterName) {
-        this.o_id = o_id;
-        this.r_id = r_id;
-        this.c_id = c_id;
-        this.v_qty = v_qty;
-        this.nv_qty = nv_qty;
-        this.otp = otp;
-        this.status = status;
-        this.longitude = longitude;
-        this.latitude = latitude;
-        this.requesterName = requesterName;
-    }
-
-    public Order(){
-
+    public Order()
+    {
+        
     }
 
     public String getO_id() {
@@ -55,19 +43,19 @@ public class Order {
         this.c_id = c_id;
     }
 
-    public String getV_qty() {
+    public int getV_qty() {
         return v_qty;
     }
 
-    public void setV_qty(String v_qty) {
+    public void setV_qty(int v_qty) {
         this.v_qty = v_qty;
     }
 
-    public String getNv_qty() {
+    public int getNv_qty() {
         return nv_qty;
     }
 
-    public void setNv_qty(String nv_qty) {
+    public void setNv_qty(int nv_qty) {
         this.nv_qty = nv_qty;
     }
 
@@ -110,4 +98,18 @@ public class Order {
     public void setRequesterName(String requesterName) {
         this.requesterName = requesterName;
     }
+
+    public Order(String o_id, String r_id, String c_id, int v_qty, int nv_qty, String otp, String status, String longitude, String latitude, String requesterName) {
+        this.o_id = o_id;
+        this.r_id = r_id;
+        this.c_id = c_id;
+        this.v_qty = v_qty;
+        this.nv_qty = nv_qty;
+        this.otp = otp;
+        this.status = status;
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.requesterName = requesterName;
+    }
+
 }
