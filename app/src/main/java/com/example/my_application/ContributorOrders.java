@@ -35,8 +35,6 @@ public class ContributorOrders extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contributor_orders);
 
-
-
         rvContributorOrders = findViewById(R.id.rvContributorOrders);
 
 //        String o_id;
@@ -86,24 +84,26 @@ public class ContributorOrders extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
+        OrdersAdapter ordersAdapter = new OrdersAdapter(alOrders,ContributorOrders.this);
+        rvContributorOrders.setAdapter(ordersAdapter);
+        rvContributorOrders.setLayoutManager(new LinearLayoutManager(ContributorOrders.this));
+
         Log.d("Orders","Inside onStart");
-        conRef.addSnapshotListener(this, new EventListener<QuerySnapshot>() {
+        conRef.whereEqualTo("status","open").addSnapshotListener(this, new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                 if(error!=null){
                     Toast.makeText(ContributorOrders.this, error.toString(), Toast.LENGTH_SHORT).show();
                 }
+                alOrders.clear();
                 for(QueryDocumentSnapshot qds : value){
                     Order o = qds.toObject(Order.class);
-                    if(alOrders.contains(o)){
-                        alOrders.remove(o);
-                    }
                     alOrders.add(o);
+                    ordersAdapter.notifyDataSetChanged();
                 }
                 Log.d("Start", "Inside onStart size"+String.valueOf(alOrders.size()));
-                OrdersAdapter ordersAdapter = new OrdersAdapter(alOrders);
-               rvContributorOrders.setAdapter(ordersAdapter);
-               rvContributorOrders.setLayoutManager(new LinearLayoutManager(ContributorOrders.this));
+
 
             }
         });

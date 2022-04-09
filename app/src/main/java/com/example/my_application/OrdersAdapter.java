@@ -1,23 +1,39 @@
 package com.example.my_application;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.util.List;
 
 public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.ViewHolder>{
 
     private List<Order> lOrders;
+    private Context context;
 
-    public OrdersAdapter(List<Order> lOrders){
+    public OrdersAdapter(List<Order> lOrders,Context context){
         this.lOrders = lOrders;
+        this.context = context;
     }
 
     @NonNull
@@ -35,7 +51,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         // Get the data model based on position
         Order order = lOrders.get(position);
 
@@ -46,6 +62,33 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.ViewHolder
         holder.tvRequesterName.setText(order.getRequesterName());
         holder.tvVeg.setText(order.getV_qty()+" veg available");
         holder.tvNonVeg.setText(order.getNv_qty()+" non veg available");
+        holder.cvContributorOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context,VerifyOrder.class);
+                intent.putExtra("order_obj", order);
+                context.startActivity(intent);
+            }
+        });
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        CollectionReference reqRef = db.collection("Requester");
+        reqRef.document(order.getR_id()).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                if(value!=null && value.exists())
+                {
+                    Requester r = value.toObject(Requester.class);
+                    holder.tvRequesterRating.setText(String.format("%.1f", r.getRating()));
+                }
+                else
+                {
+                    Log.d("OrdersAdapter",order.getR_id()+" not found");
+                }
+
+            }
+
+        });
 
     }
 
@@ -57,6 +100,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.ViewHolder
     public class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView imgProfile;
         public TextView tvOrder, tvOrderId, tvRequesterName, tvVeg, tvNonVeg, tvRequesterRating;
+        public CardView cvContributorOrder;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -68,6 +112,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.ViewHolder
             tvVeg = itemView.findViewById(R.id.tvVeg);
             tvNonVeg = itemView.findViewById(R.id.tvNonVeg);
             tvRequesterRating = itemView.findViewById(R.id.tvRequesterRating);
+            cvContributorOrder = itemView.findViewById(R.id.cvContributorOrder);
         }
     }
 }

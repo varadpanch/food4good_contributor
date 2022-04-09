@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.My_Application">
         <activity
+            android:name=".GenuineRating"
+            android:exported="false" />
+        <activity
+            android:name=".VerifyOrder"
+            android:exported="false" />
+        <activity
             android:name=".MakeFoodAvailable"
             android:exported="false" />
         <activity

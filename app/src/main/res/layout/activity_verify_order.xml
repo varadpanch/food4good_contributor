@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".VerifyOrder">
+
+    <TextView
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:text="Enter Verification Code here"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></TextView>
+
+    <com.example.my_application.OtpEditText
+        android:id="@+id/et_otp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cursorVisible="false"
+        android:digits="1234567890"
+        android:inputType="number"
+        android:maxLength="4"
+        android:textIsSelectable="false"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/btnVerify"
+        android:text="Verify"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

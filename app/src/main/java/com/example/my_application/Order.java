@@ -2,9 +2,10 @@ package com.example.my_application;
 
 import com.google.protobuf.StringValueOrBuilder;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Order {
+public class Order implements Serializable {
     String o_id;
     String r_id;
     String c_id;
