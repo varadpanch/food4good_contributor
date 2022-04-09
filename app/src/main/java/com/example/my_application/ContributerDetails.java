@@ -160,6 +160,10 @@ public class ContributerDetails extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void unused) {
                         Toast.makeText(ContributerDetails.this, "Your account has been created successfully!", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(ContributerDetails.this, ContributorDashboard.class);
+                        intent.putExtra("id",getIntent().getStringExtra("id"));
+                        startActivity(intent);
+                        finish();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override

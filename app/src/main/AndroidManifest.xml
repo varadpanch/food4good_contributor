@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.My_Application">
         <activity
+            android:name=".MakeFoodAvailable"
+            android:exported="false" />
+        <activity
+            android:name=".ContributorOrders"
+            android:exported="false" />
+        <activity
             android:name=".ContributorDashboard"
             android:exported="false" />
         <activity
@@ -26,10 +32,10 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".ContributerDetails"
-            android:exported="false"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>

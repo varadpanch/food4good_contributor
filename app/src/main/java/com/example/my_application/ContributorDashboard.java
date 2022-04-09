@@ -26,7 +26,7 @@ public class ContributorDashboard extends AppCompatActivity {
         makeFoodAvailable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ContributorDashboard.this, AvailableFood.class);
+                Intent intent = new Intent(ContributorDashboard.this, MakeFoodAvailable.class);
                 intent.putExtra("id",cid);
                 startActivity(intent);
                 finish();
@@ -44,6 +44,10 @@ public class ContributorDashboard extends AppCompatActivity {
         orders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(ContributorDashboard.this, ContributorOrders.class);
+                intent.putExtra("id",cid);
+                startActivity(intent);
+                finish();
 
             }
         });

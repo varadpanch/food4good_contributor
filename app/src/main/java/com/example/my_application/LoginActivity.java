@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
             conRef.document(id).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                 @Override
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
-                    Intent intent = new Intent(LoginActivity.this, AvailableFood.class);
+                    Intent intent = new Intent(LoginActivity.this, ContributorDashboard.class);
                     intent.putExtra("id",id);
                     startActivity(intent);
                     finish();
@@ -177,7 +177,7 @@ public class LoginActivity extends AppCompatActivity {
                 conRef.document(id).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        Intent intent = new Intent(LoginActivity.this, AvailableFood.class);
+                        Intent intent = new Intent(LoginActivity.this, ContributorDashboard.class);
                         intent.putExtra("id",id);
                         startActivity(intent);
                         finish();

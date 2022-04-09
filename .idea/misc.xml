@@ -5,7 +5,9 @@
       <map>
         <entry key="app/src/main/res/layout/activity_contributer_details.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_contributor_dashboard.xml" value="0.14166666666666666" />
+        <entry key="app/src/main/res/layout/activity_contributor_orders.xml" value="0.14166666666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.20232487431278934" />
+        <entry key="app/src/main/res/layout/activity_make_food_available.xml" value="0.14166666666666666" />
       </map>
     </option>
   </component>
