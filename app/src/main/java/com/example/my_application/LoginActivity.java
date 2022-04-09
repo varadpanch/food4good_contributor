@@ -81,25 +81,34 @@ public class LoginActivity extends AppCompatActivity {
             conRef.document(id).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                 @Override
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
-                    Intent intent = new Intent(LoginActivity.this, ContributorDashboard.class);
-                    intent.putExtra("id",id);
-                    startActivity(intent);
-                    finish();
+                    Log.d("Login","Inside onSuccess");
+                    if(documentSnapshot.exists())
+                    {
+                        Intent intent = new Intent(LoginActivity.this, ContributorDashboard.class);
+                        intent.putExtra("id",id);
+                        startActivity(intent);
+                        finish();
+                    }
+                    else
+                    {
+                        Intent intent = new Intent(LoginActivity.this,ContributerDetails.class);
+                        intent.putExtra("email",FirebaseAuth.getInstance().getCurrentUser().getEmail());
+                        intent.putExtra("longitude",longitude);
+                        intent.putExtra("latitude",latitude);
+                        intent.putExtra("id",id);
+                        startActivity(intent);
+                        Log.d("Login","Firing an intent");
+
+                        startActivity(intent);
+                        finish();
+                    }
+
 
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    Intent intent = new Intent(LoginActivity.this,ContributerDetails.class);
-                    intent.putExtra("email",FirebaseAuth.getInstance().getCurrentUser().getEmail());
-                    intent.putExtra("longitude",longitude);
-                    intent.putExtra("latitude",latitude);
-                    intent.putExtra("id",id);
-                    startActivity(intent);
-                    Log.d("Login","Firing an intent");
-
-                    startActivity(intent);
-                    finish();
+                    Toast.makeText(LoginActivity.this, "Login failed!!", Toast.LENGTH_SHORT).show();
                 }
             });
 
@@ -177,25 +186,31 @@ public class LoginActivity extends AppCompatActivity {
                 conRef.document(id).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        Intent intent = new Intent(LoginActivity.this, ContributorDashboard.class);
-                        intent.putExtra("id",id);
-                        startActivity(intent);
-                        finish();
+                        if(documentSnapshot.exists())
+                        {
+                            Intent intent = new Intent(LoginActivity.this, ContributorDashboard.class);
+                            intent.putExtra("id",id);
+                            startActivity(intent);
+                            finish();
+                        }
+                        else
+                        {
+                            Intent intent = new Intent(LoginActivity.this,ContributerDetails.class);
+                            intent.putExtra("email",FirebaseAuth.getInstance().getCurrentUser().getEmail());
+                            intent.putExtra("longitude",longitude);
+                            intent.putExtra("latitude",latitude);
+                            intent.putExtra("id",id);
+                            startActivity(intent);
+                            Log.d("Login","Firing an intent");
+
+                            startActivity(intent);
+                            finish();
+                        }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        //chaudhde
-                        //Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
-                        Intent intent = new Intent(LoginActivity.this, ContributerDetails.class);
-                        intent.putExtra("email",user.getEmail());
-                        intent.putExtra("longitude",longitude);
-                        intent.putExtra("latitude",latitude);
-                        intent.putExtra("id",user.getUid());
-                        startActivity(intent);
-
-                        Log.d("Login","Firing an intent");
-                        finish();
+                        Toast.makeText(LoginActivity.this, "Login failed!", Toast.LENGTH_SHORT).show();
                     }
                 });
 
