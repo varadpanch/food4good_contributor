@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".MakeFoodAvailable">
 
@@ -11,25 +12,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:textSize="20dp"
+        android:textSize="20sp"
+        android:padding="10dp"
         android:layout_marginTop="20dp"
-        android:text="Enter Available Food"
-        android:textStyle="bold"
-        ></TextView>
+        android:textColor="@color/black"
+        android:text="Enter the quantity of food to donate"
+        android:textStyle="bold" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:padding="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_width="match_parent"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="80dp"
+
+        app:hintEnabled="true"
+        android:textColorHint="#111111"
+
         android:layout_height="wrap_content"
-        android:hint="How many veg meals available?">
+        android:hint="Number of veg meals to donate?"
+        app:hintTextColor="#111111">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etVeg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hintTextColor="#111111"
+            android:textColor="@color/black"
+
+            android:background="#FAFAFA"
             android:inputType="number"
-            android:text="0"
+
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -40,14 +53,24 @@
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="How many non-veg meals available?">
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:hintEnabled="true"
+        app:hintTextColor="#111111"
+        android:textColorHint="#111111"
+        android:hint="Number of non-veg meals to donate?">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etNonVeg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
+            android:background="#FAFAFA"
+            app:hintTextColor="#111111"
+            android:textColor="@color/black"
+
             android:inputType="number"
-            android:text="0"
+
             />
 
     </com.google.android.material.textfield.TextInputLayout>

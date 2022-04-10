@@ -2,6 +2,7 @@ package com.example.my_application;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -81,6 +82,8 @@ public class ContributerDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contributer_details);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         //Init elements
         etName = findViewById(R.id.etName);

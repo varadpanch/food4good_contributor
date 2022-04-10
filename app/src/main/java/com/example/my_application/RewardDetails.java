@@ -1,6 +1,7 @@
 package com.example.my_application;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -43,12 +44,14 @@ public class RewardDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reward_details);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         Log.d("RewardDetails","Inside");
 
         tvRewardPoints = findViewById(R.id.tvRewardPoints);
         tvPeopleServed = findViewById(R.id.tvPeopleServed);
-        tvRewardMoney = findViewById(R.id.tvRewardMoney);
+//        tvRewardMoney = findViewById(R.id.tvRewardMoney);
         btnRedeem = findViewById(R.id.btnRedeem);
 
         ArrayList<Order> lOrders = new ArrayList<>();
@@ -75,10 +78,10 @@ public class RewardDetails extends AppCompatActivity {
                 rewardPoints = lOrders.size()*100;
                 peopleServed = unique_rid.size();
                 moneyEarned = rewardPoints/1000.0;
-                Toast.makeText(RewardDetails.this, "Reward Points:"+rewardPoints+"\nsPeople Served: "+peopleServed, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(RewardDetails.this, "Reward Points:"+rewardPoints+"\nsPeople Served: "+peopleServed, Toast.LENGTH_SHORT).show();
                 tvRewardPoints.setText(""+rewardPoints);
                 tvPeopleServed.setText(""+peopleServed);
-                tvRewardMoney.setText("Your Reward: $"+Double.toString(moneyEarned));
+//                tvRewardMoney.setText("Your Reward: $"+Double.toString(moneyEarned));
             }
         });
 

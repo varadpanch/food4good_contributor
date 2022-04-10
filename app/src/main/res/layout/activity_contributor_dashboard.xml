@@ -5,21 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".ContributorDashboard"
     android:weightSum="3">
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         app:cardElevation="10dp"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
         android:layout_weight="1"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp">
         <TextView
             android:layout_gravity="bottom|center"
             android:textSize="25dp"
-            android:paddingBottom="30dp"
+
             android:text="Rewards"
+
+
+            android:background="@color/white"
+            android:backgroundTint="@color/white"
             android:textColor="@color/black"
             android:textStyle="bold"
+            android:gravity="center"
             android:translationZ="90dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -29,57 +37,68 @@
         android:id="@+id/bRewards"
         android:src="@drawable/dashboard_rewards"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_weight="1"
-        android:text="Rewards"
+        android:layout_height="290dp"
+
+
         android:background="#ffffffff"
-        android:scaleType="fitCenter"
+        android:scaleType="centerCrop"
         />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:layout_weight="1"
         app:cardElevation="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    <TextView
-        android:layout_gravity="bottom|center"
-        android:textSize="25dp"
-        android:paddingBottom="40dp"
-        android:text="Orders"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:translationZ="90dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
 
-    </TextView>
     <ImageButton
         android:id="@+id/bOrders"
         android:src="@drawable/dashboard_orders"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_weight="1"
+        android:layout_height="290dp"
+        android:paddingTop="20dp"
+
         android:text="Orders"
         android:background="#ffffffff"
         android:scaleType="fitCenter"/>
+        <TextView
+            android:layout_gravity="bottom|center"
+            android:textSize="25dp"
+            android:paddingBottom="10dp"
+            android:text="Orders"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:translationZ="90dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </TextView>
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:layout_weight="1"
         app:cardElevation="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        android:layout_height="0dp">
     <TextView
         android:layout_gravity="bottom|center"
         android:textSize="25dp"
-        android:paddingBottom="40dp"
+        android:paddingBottom="20dp"
         android:text="Make Food Available"
         android:textColor="@color/black"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        android:gravity="center"
         android:textStyle="bold"
         android:translationZ="90dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
     </TextView>
@@ -87,10 +106,11 @@
         android:id="@+id/bMakeFoodAvailable"
         android:src="@drawable/dashboard_make_food_available"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="260dp"
+
         android:layout_weight="1"
         android:background="#ffffffff"
-        android:text="Make Food Available"
+
         android:scaleType="fitCenter"
         />
     </androidx.cardview.widget.CardView>

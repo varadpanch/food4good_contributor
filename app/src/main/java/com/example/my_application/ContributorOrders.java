@@ -2,6 +2,7 @@ package com.example.my_application;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,6 +37,8 @@ public class ContributorOrders extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contributor_orders);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         rvContributorOrders = findViewById(R.id.rvContributorOrders);
 

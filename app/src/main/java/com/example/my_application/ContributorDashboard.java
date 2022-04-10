@@ -1,5 +1,6 @@
 package com.example.my_application;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -18,6 +19,8 @@ public class ContributorDashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contributor_dashboard);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         rewards = findViewById(R.id.bRewards);
         orders = findViewById(R.id.bOrders);

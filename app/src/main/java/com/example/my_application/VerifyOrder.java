@@ -1,6 +1,7 @@
 package com.example.my_application;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -29,6 +30,8 @@ public class VerifyOrder extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verify_order);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         Order order = (Order) getIntent().getSerializableExtra("order_obj");
 
