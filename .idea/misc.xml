@@ -10,6 +10,7 @@
         <entry key="app/src/main/res/layout/activity_make_food_available.xml" value="0.14166666666666666" />
         <entry key="app/src/main/res/layout/activity_redeem_details.xml" value="0.1484375" />
         <entry key="app/src/main/res/layout/activity_reward_details.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/rv_item_order.xml" value="0.335" />
       </map>
     </option>
   </component>
