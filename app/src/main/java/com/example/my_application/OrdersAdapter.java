@@ -59,9 +59,9 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.ViewHolder
         ImageView imgProfile = holder.imgProfile;
         holder.tvOrder.setText("Order:");
         holder.tvOrderId.setText("#"+order.getO_id());
-        holder.tvRequesterName.setText(order.getRequesterName());
-        holder.tvVeg.setText(order.getV_qty()+" veg available");
-        holder.tvNonVeg.setText(order.getNv_qty()+" non veg available");
+        holder.tvRequesterName.setText("Name: "+order.getRequesterName());
+        holder.tvVeg.setText(order.getV_qty()+" veg meals requested");
+        holder.tvNonVeg.setText(order.getNv_qty()+" non-veg meals requested");
         holder.cvContributorOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
