@@ -112,16 +112,11 @@ public class ContributerDetails extends AppCompatActivity {
 
         ArrayAdapter<String> aaTypes = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,conTypes);
         spnTypes.setAdapter(aaTypes);
-        spnTypes.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+        spnTypes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                type = adapterView.getItemAtPosition(i).toString();
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                type = (String)adapterView.getItemAtPosition(i);
                 Toast.makeText(ContributerDetails.this, type, Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
             }
         });
 
@@ -146,6 +141,7 @@ public class ContributerDetails extends AppCompatActivity {
             public void onClick(View view) {
                 name = etName.getText().toString();
                 address = etAddress.getText().toString();
+
 
                 Log.d("Contributor",name);
                 Log.d("Contributor",email);

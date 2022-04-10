@@ -188,6 +188,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         if(documentSnapshot.exists())
                         {
+                            Log.d("Login",id+" exists");
                             Intent intent = new Intent(LoginActivity.this, ContributorDashboard.class);
                             intent.putExtra("id",id);
                             startActivity(intent);
