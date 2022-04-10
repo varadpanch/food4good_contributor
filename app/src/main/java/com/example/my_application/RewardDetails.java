@@ -3,11 +3,14 @@ package com.example.my_application;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.core.utilities.Tree;
 import com.google.firebase.firestore.CollectionReference;
@@ -23,6 +26,7 @@ import java.util.TreeSet;
 
 public class RewardDetails extends AppCompatActivity {
     String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
     //Firebase database
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     CollectionReference ordRef = db.collection("Order");
@@ -33,6 +37,7 @@ public class RewardDetails extends AppCompatActivity {
 
     TextView tvRewardPoints, tvPeopleServed, tvRewardMoney;
 
+    MaterialButton btnRedeem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +49,18 @@ public class RewardDetails extends AppCompatActivity {
         tvRewardPoints = findViewById(R.id.tvRewardPoints);
         tvPeopleServed = findViewById(R.id.tvPeopleServed);
         tvRewardMoney = findViewById(R.id.tvRewardMoney);
+        btnRedeem = findViewById(R.id.btnRedeem);
 
         ArrayList<Order> lOrders = new ArrayList<>();
         TreeSet<String> unique_rid = new TreeSet<>();
+
+        btnRedeem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RewardDetails.this,RedeemDetails.class);
+                startActivity(intent);
+            }
+        });
 
 
         ordRef.whereEqualTo("status","closed").whereEqualTo("c_id",id).addSnapshotListener(this, new EventListener<QuerySnapshot>() {

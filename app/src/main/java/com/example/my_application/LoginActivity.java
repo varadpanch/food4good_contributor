@@ -81,9 +81,10 @@ public class LoginActivity extends AppCompatActivity {
             conRef.document(id).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                 @Override
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
-                    Log.d("Login","Inside onSuccess");
+                    Log.d("Login",id+" is already logged in");
                     if(documentSnapshot.exists())
                     {
+                        Log.d("Login",id+" exists");
                         Intent intent = new Intent(LoginActivity.this, ContributorDashboard.class);
                         intent.putExtra("id",id);
                         startActivity(intent);
@@ -91,6 +92,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     else
                     {
+                        Log.d("Login",id+" does not exists");
                         Intent intent = new Intent(LoginActivity.this,ContributerDetails.class);
                         intent.putExtra("email",FirebaseAuth.getInstance().getCurrentUser().getEmail());
                         intent.putExtra("longitude",longitude);
@@ -187,6 +189,8 @@ public class LoginActivity extends AppCompatActivity {
                 // ...
                 String id = user.getUid();
 
+                Log.d("Login",id + " is logging in");
+
                 conRef.document(id).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -200,6 +204,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         else
                         {
+                            Log.d("Login",id+" does not exists");
                             Intent intent = new Intent(LoginActivity.this,ContributerDetails.class);
                             intent.putExtra("email",FirebaseAuth.getInstance().getCurrentUser().getEmail());
                             intent.putExtra("longitude",longitude);

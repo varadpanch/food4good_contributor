@@ -29,7 +29,7 @@ public class ContributorDashboard extends AppCompatActivity {
                 Intent intent = new Intent(ContributorDashboard.this, MakeFoodAvailable.class);
                 intent.putExtra("id",cid);
                 startActivity(intent);
-                finish();
+                //finish();
             }
         });
 
@@ -38,7 +38,7 @@ public class ContributorDashboard extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ContributorDashboard.this, RewardDetails.class);
                 startActivity(intent);
-                finish();
+                //finish();
 
             }
         });
@@ -50,7 +50,7 @@ public class ContributorDashboard extends AppCompatActivity {
                 Intent intent = new Intent(ContributorDashboard.this, ContributorOrders.class);
                 intent.putExtra("id",cid);
                 startActivity(intent);
-                finish();
+                //finish();
 
             }
         });

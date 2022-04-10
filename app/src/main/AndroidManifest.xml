@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.My_Application">
         <activity
+            android:name=".RedeemDetails"
+            android:exported="false" />
+        <activity
             android:name=".RewardDetails"
             android:exported="false" />
         <activity
