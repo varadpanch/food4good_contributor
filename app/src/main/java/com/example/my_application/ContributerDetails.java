@@ -15,8 +15,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -24,6 +26,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -42,11 +46,10 @@ import java.util.UUID;
 public class ContributerDetails extends AppCompatActivity {
 
     private Button signUp;
-    private EditText etName;
-    private EditText etEmail;
-    private EditText etAddress;
-    private Spinner spnTypes;
-    private Button upload;
+    private TextInputEditText  etName, etEmail, etAddress;
+    private AutoCompleteTextView spnTypes;
+    private FloatingActionButton upload;
+    private ImageView imageView;
 
     LocationManager locationManager;
     String id = "";
@@ -86,8 +89,10 @@ public class ContributerDetails extends AppCompatActivity {
         spnTypes = findViewById(R.id.spnTypes);
         upload = findViewById(R.id.btnUpload);
         signUp = findViewById(R.id.btnSignUp);
+        imageView = findViewById(R.id.imageView);
 
-        signUp.setVisibility(View.GONE);
+        //signUp.setVisibility(View.GONE);
+        signUp.setEnabled(false);
 
 
         //Getting this value from intent
@@ -285,7 +290,7 @@ public class ContributerDetails extends AppCompatActivity {
                                                     String fileLink = task.getResult().toString();
 
                                                     Log.d("Firestorage url",fileLink);
-                                                    signUp.setVisibility(View.VISIBLE);
+                                                    signUp.setEnabled(true);
                                                     imageUrl = fileLink;
                                                     progressDialog.dismiss();
 
@@ -386,7 +391,7 @@ public class ContributerDetails extends AppCompatActivity {
 
                 Log.d("Firestorage url","just clicked button after select");
                 uploadImage();
-                //imageView.setImageBitmap(bitmap);
+                imageView.setImageBitmap(bitmap);
             }
 
             catch (IOException e) {

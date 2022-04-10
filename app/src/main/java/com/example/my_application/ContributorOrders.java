@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -27,6 +28,7 @@ public class ContributorOrders extends AppCompatActivity {
     //Firebase database
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     CollectionReference conRef = db.collection("Order");
+    String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
     ArrayList<Order> alOrders;
 
@@ -90,7 +92,7 @@ public class ContributorOrders extends AppCompatActivity {
         rvContributorOrders.setLayoutManager(new LinearLayoutManager(ContributorOrders.this));
 
         Log.d("Orders","Inside onStart");
-        conRef.whereEqualTo("status","open").addSnapshotListener(this, new EventListener<QuerySnapshot>() {
+        conRef.whereEqualTo("status","open").whereEqualTo("c_id",id).addSnapshotListener(this, new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                 if(error!=null){
