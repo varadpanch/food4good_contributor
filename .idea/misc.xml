@@ -3,12 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
+        <entry key="../../../../../../../layout/custom_preview.xml" value="0.17239583333333333" />
+        <entry key="app/src/main/res/layout/activity_contributer_details.xml" value="0.335" />
+=======
         <entry key="app/src/main/res/layout/activity_contributer_details.xml" value="0.25" />
+>>>>>>> 651b3b9d7361624fcbdf3cb1f8e657dac67d044c
         <entry key="app/src/main/res/layout/activity_contributor_dashboard.xml" value="0.14166666666666666" />
-        <entry key="app/src/main/res/layout/activity_contributor_orders.xml" value="0.14166666666666666" />
+        <entry key="app/src/main/res/layout/activity_contributor_orders.xml" value="0.55" />
+        <entry key="app/src/main/res/layout/activity_genuine_rating.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.14583333333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.20232487431278934" />
         <entry key="app/src/main/res/layout/activity_make_food_available.xml" value="0.14166666666666666" />
+<<<<<<< HEAD
+        <entry key="app/src/main/res/layout/activity_verify_order.xml" value="0.14583333333333334" />
+        <entry key="app/src/main/res/layout/rv_item_order.xml" value="0.375" />
+=======
         <entry key="app/src/main/res/layout/activity_reward_details.xml" value="0.25" />
+>>>>>>> 651b3b9d7361624fcbdf3cb1f8e657dac67d044c
       </map>
     </option>
   </component>
