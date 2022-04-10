@@ -36,6 +36,9 @@ public class ContributorDashboard extends AppCompatActivity {
         rewards.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(ContributorDashboard.this, RewardDetails.class);
+                startActivity(intent);
+                finish();
 
             }
         });

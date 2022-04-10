@@ -8,44 +8,92 @@
     android:orientation="vertical"
     tools:context=".ContributerDetails">
 
-  <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="Enter your details" />
-
-  <EditText
-    android:id="@+id/etName"
-    android:hint="Enter your name"
+  <ImageView
+      android:id="@+id/imageView"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"></EditText>
+      android:layout_height="200dp"
+      android:src="@drawable/store"
+      android:scaleType="centerCrop" />
 
-  <EditText
-      android:id="@+id/etAddress"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_margin="16dp"
+        android:contentDescription=""
+        app:srcCompat="@drawable/ic_baseline_add_a_photo_24" />
+
+
+  <com.google.android.material.textfield.TextInputLayout
+
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="Enter your name">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textfield.TextInputLayout
+
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
       android:hint="Enter your address"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"></EditText>
-  <Spinner
-      android:id="@+id/spnTypes"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content" />
+      android:layout_marginTop="10dp">
 
-  <EditText
-      android:id="@+id/etEmail"
-      android:hint="Enter your email"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"></EditText>
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
 
-  <Button
-      android:id="@+id/btnUpload"
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textfield.TextInputLayout
+
+      style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_weight="1"
-      android:text="Upload" />
+      android:hint="Enter contributor type"
+      android:layout_marginTop="10dp">
+
+    <AutoCompleteTextView
+        android:id="@+id/spnTypes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="none"
+        />
+
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <com.google.android.material.textfield.TextInputLayout
+
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="Enter your email"
+      android:layout_marginTop="10dp">>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+  </com.google.android.material.textfield.TextInputLayout>
+
+
+
   <Button
       android:id="@+id/btnSignUp"
-      android:layout_width="match_parent"
+      android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_weight="1"
+      android:layout_marginTop="50dp"
+      android:layout_gravity="center"
       android:text="Sign Up" />
 
 
