@@ -159,6 +159,10 @@ public class LoginActivity extends AppCompatActivity {
             if (locationGPS != null) {
                 double lat = locationGPS.getLatitude();
                 double longi = locationGPS.getLongitude();
+                double[] ans = RandomLocation.generate();
+                lat += ans[0];
+                longi+= ans[1];
+
                 latitude = String.valueOf(lat);
                 longitude = String.valueOf(longi);
                 Log.d("Location: ","Your Location: " + "\n" + "Latitude: " + latitude + "\n" + "Longitude: " + longitude);
